@@ -1,6 +1,18 @@
 # Cross-Sector Analytics Portfolio
 *By Ramon A. Marlow*
 
+## About Me
+Data Analyst & Systems Designer with over 10 years of experience using data techniques to analyze financial markets, build forecasting models, and transform raw data into actionable insights. I've recently incorporated AI-driven systems into analytical workflows, enhancing real-time decision-making capabilities. My work spans finance, healthcare, and government sectors, with demonstrated expertise through systematic portfolio growth and data-driven strategies.
+
+Currently expanding my technical foundation through formal data analytics education and cybersecurity studies at Western Governors University.
+
+## What I Do
+- **Cross-Sector Analytics**: Finance, Healthcare, Government
+- **Financial Analysis**: Technical analysis, portfolio management, risk assessment
+- **AI & Automation**: Prompt engineering, process automation, real-time alert systems
+- **Data Visualization**: Tableau, Google Sheets, statistical analysis
+- **Market Forecasting**: Built models achieving 85% prediction accuracy
+
 ## Overview
 This repository showcases comprehensive analytical solutions across multiple industries, demonstrating 10+ years of expertise in data analysis, financial modeling, and systematic problem-solving. Each project addresses real-world challenges with data-driven methodologies and actionable insights.
 
