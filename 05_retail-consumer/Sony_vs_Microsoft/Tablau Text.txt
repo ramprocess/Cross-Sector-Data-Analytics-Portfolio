@@ -1,0 +1,178 @@
+Absolutely! Here’s how you should **name each Tableau sheet** for your Sony vs Microsoft case study. For every sheet, I’ll give you:
+
+* **Sheet Name**
+* **Purpose / What question it answers**
+* **What to drag where (in Tableau)**
+* **What to calculate (with example formulas if needed)**
+
+You can use these as literal tab names, or as a checklist for building your dashboard.
+
+---
+
+## **SONY vs MICROSOFT Case Study: Recommended Tableau Sheets**
+
+---
+
+### **1. “Stock Price History”**
+
+**Purpose:** Compare yearly closing prices for both companies.
+
+* **Columns:** Year
+* **Rows:** Close
+* **Color:** Name (Sony/Microsoft)
+* **Chart Type:** Line Chart
+* **Instructions:** Drag Year to Columns, Close to Rows, Name to Color.
+
+---
+
+### **2. “CAGR & Total Return”**
+
+**Purpose:** Who grew more (stock price) over 10 years?
+
+* **Calculated Field:**
+
+  * CAGR = `(POWER(SUM([Close])/WINDOW_MIN([Close]), 1/(WINDOW_MAX([Year])-WINDOW_MIN([Year]))) - 1)`
+  * Total Return = `(WINDOW_MAX([Close]) - WINDOW_MIN([Close])) / WINDOW_MIN([Close])`
+* **Columns:** Name
+* **Rows:** CAGR, Total Return
+* **Chart Type:** Table (or Bar)
+* **Instructions:**
+
+  * Drag Name to Columns
+  * Drag both calculated fields to Rows (or vice versa)
+  * Show as a summary table or bar chart.
+
+---
+
+### **3. “Market Cap Growth”**
+
+**Purpose:** Who added more value (market cap)?
+
+* **Columns:** Year
+
+* **Rows:** MarketCapB
+
+* **Color:** Name
+
+* **Chart Type:** Line or Area Chart
+
+* **Instructions:** Drag Year to Columns, MarketCapB to Rows, Name to Color.
+
+* **Calculated Field (Market Cap Growth %):**
+
+  * `(WINDOW_MAX([MarketCapB]) - WINDOW_MIN([MarketCapB])) / WINDOW_MIN([MarketCapB])`
+  * Drag as Text for each company.
+
+---
+
+### **4. “Valuation Multiples”**
+
+**Purpose:** How do PE, PB, PS ratios compare year by year?
+
+* **Columns:** Year
+* **Rows:** PE, PB, or PS (make one chart for each or combine)
+* **Color:** Name
+* **Chart Type:** Line
+* **Instructions:** Drag Year to Columns, each ratio to Rows, Name to Color.
+* **Tip:** Use “Show Me” to combine lines, add average reference line from Analytics pane.
+
+---
+
+### **5. “Revenue & EPS Growth”**
+
+**Purpose:** Who grew revenue and earnings faster?
+
+* **Columns:** Year
+
+* **Rows:** RevenueB and EPS (dual axis or two charts)
+
+* **Color:** Name
+
+* **Chart Type:** Line or Bar
+
+* **Instructions:**
+
+  * Drag Year to Columns
+  * Drag RevenueB and EPS to Rows (use Dual Axis for overlay or two separate sheets)
+  * Drag Name to Color.
+
+* **Calculated Field for Revenue CAGR and EPS CAGR** (see above for formulas; repeat CAGR logic for RevenueB and EPS).
+
+---
+
+### **6. “Yearly Returns & Volatility”**
+
+**Purpose:** Who had the most stable performance?
+
+* **Columns:** Year
+
+* **Rows:** %Change
+
+* **Color:** Name
+
+* **Chart Type:** Bar Chart
+
+* **Instructions:** Drag Year to Columns, %Change to Rows, Name to Color.
+
+* **Calculated Field:**
+
+  * `StdDev %Change (10Y) = STDEV([%Change])`
+  * Show as annotation or in a separate summary sheet.
+
+---
+
+### **7. “Sony Outperforms Microsoft”**
+
+**Purpose:** Visualize which years Sony outperformed.
+
+* **Columns:** Year
+* **Rows:** %Change
+* **Color:** Name
+* **Instructions:** Use same setup as above, then **highlight years where Sony bar > Microsoft bar.** (Manual color, annotation, or filter.)
+
+---
+
+### **8. “Side-by-Side Comparison Table”**
+
+**Purpose:** Grid view for direct comparison.
+
+* **Columns:** Name
+* **Rows:** Year
+* **Text/Detail:** Close, MarketCapB, RevenueB, EPS, PE, PS, PB, %Change
+* **Instructions:** Drag Name to Columns, Year to Rows, add all relevant Measures to Text or Detail.
+
+---
+
+### **9. “Key Insights & Annotations”** (Dashboard Sheet)
+
+**Purpose:** Qualitative takeaways, explain ecosystem/moat/strategy.
+
+* **Instructions:** Use Dashboard text box to summarize findings (see “strategic/ecosystem factors” from earlier).
+
+---
+
+## **Tableau Sheet Cheat Sheet (Copy for Your Project)**
+
+1. **Stock Price History**
+2. **CAGR & Total Return**
+3. **Market Cap Growth**
+4. **Valuation Multiples**
+5. **Revenue & EPS Growth**
+6. **Yearly Returns & Volatility**
+7. **Sony Outperforms Microsoft**
+8. **Side-by-Side Comparison Table**
+9. **Key Insights & Annotations**
+
+---
+
+## **Build Order Pro Tip**
+
+* Build sheets 1–8 as “Analysis” tabs.
+* Use “Key Insights” as your summary/dashboard landing page.
+* Add Dashboard/Story for “macro-to-micro” flow (big picture → detailed breakdown).
+
+---
+
+## **Want actual calculated field code or sheet-by-sheet drag/drop order for any tab?**
+
+Just say which one(s) you want next and I’ll write it out!
